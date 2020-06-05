@@ -1,7 +1,7 @@
 <?php
 
-namespace NENEVEL\Base\Utils;
-use NENEVEL\Base\Controller as DefaultController;
+namespace DIY\Base\Utils;
+use DIY\Base\Controller as DefaultController;
 
 class DError extends DefaultController {
 

@@ -11,8 +11,8 @@
  *
  */
 
-namespace NENEVEL\Base\Session;
-use NENEVEL\Base\Utils\DUtil;
+namespace DIY\Base\Session;
+use DIY\Base\Utils\DUtil;
 
 class DFileHandler extends \SessionHandler {
     private $key;

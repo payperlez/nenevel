@@ -7,7 +7,7 @@
  *              Refer to the LICENSE file distributed within the package.
  */
 
-namespace NENEVEL\Base;
+namespace DIY\Base;
 
 class Bootstrap {
     private static $_db_config = array();

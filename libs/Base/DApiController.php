@@ -8,8 +8,8 @@
  *
  */
 
-namespace NENEVEL\Base;
-use \NENEVEL\Base\Utils\DUtil;
+namespace DIY\Base;
+use \DIY\Base\Utils\DUtil;
 
 class DApiController extends BaseController {
     public function __construct(){
@@ -18,13 +18,13 @@ class DApiController extends BaseController {
 
     public function message($status, $message, $errorCode = null) {
         if($status === false){
-            return DUtil::response()->json([
+            return response()->json([
                 "success" => false,
                 "data" => $message,
                 "error_code" => (!empty($errorCode)) ? $errorCode : "DERRx000"
             ]);
         } else{
-            return DUtil::response()->json([
+            return response()->json([
                 "success" => true,
                 "data" => $message
             ]);

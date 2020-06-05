@@ -1,6 +1,6 @@
 <?php
 
-namespace NENEVEL\Base;
+namespace DIY\Base;
 use \RedBeanPHP\SimpleModel;
 
 class BeanModel extends SimpleModel{

@@ -11,11 +11,10 @@
  *
  */
 
-namespace NENEVEL\Base;
+namespace DIY\Base;
 use \Tamtamchik\SimpleFlash\Flash;
 use \Tamtamchik\SimpleFlash\TemplateFactory;
 use \Tamtamchik\SimpleFlash\Templates;
-use \DIY\Base\Utils\DUtil;
 
 class DController extends BaseController {
     public $view;
@@ -30,9 +29,9 @@ class DController extends BaseController {
         $this->flash = new Flash();
         $this->flash->setTemplate($this->flashTemplate);
 
-        $this->view->csrf_token = DUtil::csrf_token();
+        $this->view->csrf_token = csrf_token();
         $this->view->base_url = BASE_URL;
-        $this->view->current_url = DUtil::url()->getOriginalUrl();
+        $this->view->current_url = url()->getOriginalUrl();
         $this->view->static = STATIC_URL;
         $this->view->media = MEDIA_URL;
     }

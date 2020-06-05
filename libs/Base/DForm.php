@@ -20,9 +20,9 @@
  *      }
  */
 
-namespace NENEVEL\Base;
-use NENEVEL\Base\Form\Format;
-use NENEVEL\Base\Form\Validate;
+namespace DIY\Base;
+use DIY\Base\Form\Format;
+use DIY\Base\Form\Validate;
 use \Exception as Exception;
 
 class DForm {
@@ -380,8 +380,8 @@ class DForm {
      * the very end of a systems operations.
      */
     public static function clearSessionTemp() {
-        if (isset($_SESSION[DForm::_sessionTemp])) {
-            unset($_SESSION[DForm::_sessionTemp]);
+        if (isset($_SESSION[$this->_sessionTemp])) {
+            unset($_SESSION[$this->_sessionTemp]);
         }
     }
 

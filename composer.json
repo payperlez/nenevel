@@ -1,9 +1,9 @@
 {
-    "name": "nenevel/framework",
-    "description": "A PHP minimal framework which allows you to control every bit of it. Build by Nene Paid Ademang (In loving memory, 1991 - 2020). Modified for production by Team Payperlez",
-    "keywords": ["nenevel", "framework"],
+    "name": "diy/framework",
+    "description": "DoItYourself Micro Framework",
+    "keywords": ["do it yourself", "framework"],
     "license": "MIT",
-    "version": "0.5",
+    "version": "0.6",
     "minimum-stability": "dev",
     "authors": [
         {
@@ -22,12 +22,13 @@
         "phpmailer/phpmailer": "^6.0",
         "wixel/gump": "^1.5",
         "tamtamchik/simple-flash": "^1.2",
-        "predis/predis": "^1.1"
+        "predis/predis": "^1.1",
+        "symfony/console": "^5.1@dev"
     },
     "autoload": {
         "psr-4": {
             "": "ext",
-            "NENEVEL\\": "libs/",
+            "DIY\\": "libs/",
             "App\\": "app/"
         },
         "classmap": [

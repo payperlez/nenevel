@@ -1,11 +1,6 @@
 <?php
 
-namespace NENEVEL\Base\Utils;
-
-use Pecee\SimpleRouter\SimpleRouter as Router;
-use Pecee\Http\Url;
-use Pecee\Http\Response;
-use Pecee\Http\Request;
+namespace DIY\Base\Utils;
 
 class DUtil {
 
@@ -208,76 +203,6 @@ class DUtil {
     }
 
     /**
-     * Get url for a route by using either name/alias, class or method name.
-     * The name parameter supports the following values:
-     * - Route name
-     * - Controller/resource name (with or without method)
-     * - Controller class name
-     * 
-     * When searching for controller/resource by name, you can use this syntax "route.name@method".
-     * You can also use the same syntax when searching for a specific controller-class "MyController@home".
-     * If no arguments is specified, it will return the url for the current loaded route.
-     * 
-     * @param string|null $name
-     * @param string|array|null $parameters
-     * @param array|null $getParams
-     * @return \Pecee\Http\Url
-     * @throws \InvalidArgumentException
-     */
-    public static function url(?string $name = null, $parameters = null, ?array $getParams = null) : Url{
-        return Router::getUrl($name, $parameters, $getParams);
-    }
-    
-    /**
-     * @return \Pecee\Http\Response
-     */
-    public static function response() : Response{
-        return Router::response();
-    }
-
-    /**
-     * @return \Pecee\Http\Request
-     */
-    public static function request() : Request {
-        return Router::request();
-    }
-
-    /**
-     * Get input class
-     * @param string|null $index Parameter index name
-     * @param string|null $defaultValue Default return value
-     * @param array ...$methods Default methods
-     * @return \Pecee\Http\Imput\InputHandler|\Pecee\Http\Input\IInputItem|string
-     */
-    public static function input($index = null, $defaultValue = null, ...$methods) {
-        if($index !== null) 
-            return static::request()->getInputHandler()->value($index, $defaultValue, ...$methods);
-        return static::request()->getInputHandler();
-    }
-
-    /**
-     * redirect to another url
-     *
-     * @param string $url
-     * @param int|null $code
-     * @return void
-     */
-    public static function redirect(string $url, ?int $code = null) : void {
-        if($code !== null) static::response()->httpCode($code);
-        static::response()->redirect($url);
-    }
-
-    /**
-     * Get current csrf-token
-     * @return string|null
-     */
-    public static function csrf_token() : ?string {
-        $baseVerifier = Router::router()->getCsrfVerifier();
-        if($baseVerifier !== null) return $baseVerifier->getTokenProvider()->getToken();
-        return null;
-    }
-
-    /**
      * Cast an array or an stdClass to another class
      *
      * @param array|stdClass $instance
@@ -310,18 +235,20 @@ class DUtil {
      * @return base64 encrypted data
      */
     public static function encrypt($data, $passphrase){
+        // Set a random salt
         $salt = openssl_random_pseudo_bytes(16);
+
         $salted = '';
         $dx = '';
-
         // Salt the key(32) and iv(16) = 48
-        while(strlen($salted) < 48){
-            $dx = hash('sha256', $dx.$passphrase.$salt, true);
-            $salted .= $dx;
+        while (strlen($salted) < 48) {
+        $dx = hash('sha256', $dx.$passphrase.$salt, true);
+        $salted .= $dx;
         }
 
         $key = substr($salted, 0, 32);
-        $iv = substr($salted, 32, 16);
+        $iv  = substr($salted, 32,16);
+
         $encrypted_data = openssl_encrypt($data, 'AES-256-CBC', $key, true, $iv);
         return base64_encode($salt . $encrypted_data);
     }
@@ -338,20 +265,43 @@ class DUtil {
         $salt = substr($data, 0, 16);
         $ct = substr($data, 16);
 
-        $rounds = 3;
+        $rounds = 3; // depends on key length
         $data00 = $passphrase.$salt;
         $hash = array();
         $hash[0] = hash('sha256', $data00, true);
         $result = $hash[0];
-        for($i = 1; $i < $rounds; $i++){
+        for ($i = 1; $i < $rounds; $i++) {
             $hash[$i] = hash('sha256', $hash[$i - 1].$data00, true);
             $result .= $hash[$i];
         }
-
         $key = substr($result, 0, 32);
-        $iv = substr($result, 32, 16);
+        $iv  = substr($result, 32,16);
 
         return openssl_decrypt($ct, 'AES-256-CBC', $key, true, $iv);
     }
 
+    /**
+     * Get either a Gravatar URL or complete image tag for a specified email address
+     *
+     * @param string $email The email address
+     * @param integer $size Size of image in pixels. Desfaults to 80 [1 - 2048]
+     * @param string $imageset Default imageset to use [ 404 | mp | identicon | monsterid | wavatar ]
+     * @param string $rating Maximum rating (inclusive) [ g | pg | r | x ]
+     * @param boolean $tag True to return a complete IMG tag False for just the URL
+     * @param array $attr Optional, additional key/value attributes to include in the IMG tag
+     * @return String containing either just a URL or a complete image tag
+     */
+    public static function gravatar($email, $size = 80, $imageset = 'mp', $rating = 'g', $tag = false, $attr = array()){
+        $url = 'https://www.gravatar.com/avatar/';
+        $url .= md5( strtolower( trim( $email ) ) );
+        $url .= "?s=$size&d=$imageset&r=$rating";
+
+        if ($tag) {
+            $url = '<img src="' . $url . '"';
+            foreach ( $attr as $key => $val ) $url .= ' ' . $key . '="' . $val . '"';
+            $url .= ' />';
+        }
+
+        return $url;
+    }
 }

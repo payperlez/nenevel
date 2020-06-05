@@ -28,7 +28,7 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-namespace NENEVEL\Base\Utils;
+namespace DIY\Base\Utils;
 
 class ExtremelyUnlikelyRandomnessException extends \Exception {}
 

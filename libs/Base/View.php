@@ -8,8 +8,8 @@
  *
  */
 
-namespace NENEVEL\Base;
-use NENEVEL\Base\Utils\Session;
+namespace DIY\Base;
+use DIY\Base\Utils\Session;
 
 class DViewException extends \Exception{ }
 
@@ -22,18 +22,20 @@ class View {
     public function __construct() {
         Session::init();
         $this->_viewConfig = unserialize(TEMPLATES);
-        if(PHP_VERSION_ID >= 50303 && class_exists("\Twig_Environment")){
-            if(isset($this->_viewConfig['templateDir'])){
-                $this->_loader = new \Twig_Loader_Filesystem($this->_viewConfig['templateDir']);
-                $this->_engine = new \Twig_Environment($this->_loader, array(
-                    // 'cache' => $this->_viewConfig['cacheDir'],
-                    'debug' => $this->_viewConfig['debug'],
-                    'autoescape' => $this->_viewConfig['autoescape'],
-                    'auto_reload' => true
-                ));
-            } else {
-                die("Please set the path to your templates");
-            }
+        if(isset($this->_viewConfig['templateDir'])){
+            $this->_loader = new \Twig\Loader\FilesystemLoader($this->_viewConfig['templateDir']);
+            $view_settings = array(
+                'cache' => $this->_viewConfig['cacheDir'],
+                'debug' => $this->_viewConfig['debug'],
+                'autoescape' => $this->_viewConfig['autoescape'],
+                'auto_reload' => true
+            );
+            
+            if(RUNTIME_ENVIRONMENT === 'dev') unset($view_settings['cache']);
+            
+            $this->_engine = new \Twig\Environment($this->_loader, $view_settings);
+        } else {
+            throw new DViewException("Please set the path to your templates");
         }
     }
 
@@ -57,26 +59,11 @@ class View {
      * @param $__name__
      * @return void
      */
-    public function render($__name__, $layout = false) {
-        if (PHP_VERSION_ID >= 50303 && class_exists("\Twig_Environment")) {
-            foreach ($this->_loader->getPaths() as $path) {
-                if (file_exists("{$path}/{$__name__}.twig")) {
-                    echo $this->_engine->render("{$__name__}.twig", $this->__data__);
-                }
+    public function render($__name__) {
+        foreach ($this->_loader->getPaths() as $path) {
+            if (file_exists("{$path}/{$__name__}.twig")) {
+                echo $this->_engine->render("{$__name__}.twig", $this->__data__);
             }
-        } else{
-            if(array_key_exists('view_template_file', $this->__data__)) {
-                throw new DViewException("Cannot bind variable called 'view_template_file'");
-            }
-
-            $partials = "{$this->_viewConfig['templateDir']}partials/";
-            $inclusion = ($layout && (file_exists($partials && is_dir($partials)))) ? true : false;
-            extract($this->__data__);
-            ob_start();
-            if($inclusion && file_exists("{$partials}header.php")) include("{$partials}header.php");
-            include("{$this->_viewConfig['templateDir']}{$__name__}.php");
-            if($inclusion && file_exists("{$partials}footer.php")) include("{$partials}footer.php");
-            echo ob_get_clean();
         }
 
         return true;

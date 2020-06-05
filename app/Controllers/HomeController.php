@@ -1,9 +1,9 @@
 <?php
 
 namespace App\Controllers;
-use NENEVEL\Base\DController;
-use NENEVEL\Base\Utils\DUtil;
-use NENEVEL\Base\Utils\Session;
+use DIY\Base\DController;
+use DIY\Base\Utils\DUtil;
+use DIY\Base\Utils\Session;
 
 class HomeController extends DController {
     public function __construct(){
