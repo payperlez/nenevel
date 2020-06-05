@@ -1,0 +1,37 @@
+{
+    "name": "diy/framework",
+    "description": "DoItYourself PHP Framework",
+    "keywords": ["do it yourself", "framework"],
+    "license": "MIT",
+    "version": "0.5",
+    "minimum-stability": "dev",
+    "authors": [
+        {
+            "name": "Obed Ademang",
+            "email": "obed.ademang@gmail.com",
+            "role": "owner"
+        }
+    ],
+    "require": {
+        "php": ">=7.0",
+        "twig/twig": ">=2.5.0",
+        "vlucas/phpdotenv": "^2.2",
+        "ircmaxell/password-compat": "^1.0",
+        "pecee/simple-router": "4.2.0.3",
+        "filp/whoops": "^2.3",
+        "phpmailer/phpmailer": "^6.0",
+        "wixel/gump": "^1.5",
+        "tamtamchik/simple-flash": "^1.2",
+        "predis/predis": "^1.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "": "ext",
+            "DIY\\": "libs/",
+            "App\\": "app/"
+        },
+        "classmap": [
+            "ext/"
+        ]
+    }
+}
