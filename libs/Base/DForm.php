@@ -20,9 +20,9 @@
  *      }
  */
 
-namespace DIY\Base;
-use DIY\Base\Form\Format;
-use DIY\Base\Form\Validate;
+namespace NENEVEL\Base;
+use NENEVEL\Base\Form\Format;
+use NENEVEL\Base\Form\Validate;
 use \Exception as Exception;
 
 class DForm {

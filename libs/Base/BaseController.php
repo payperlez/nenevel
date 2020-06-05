@@ -9,8 +9,8 @@
  *
  */
 
-namespace DIY\Base;
-use \DIY\Base\Utils\Session;
+namespace NENEVEL\Base;
+use \NENEVEL\Base\Utils\Session;
 
 class BaseController {
     public $validate;

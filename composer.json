@@ -1,7 +1,7 @@
 {
-    "name": "diy/framework",
-    "description": "DoItYourself PHP Framework",
-    "keywords": ["do it yourself", "framework"],
+    "name": "nenevel/framework",
+    "description": "A PHP minimal framework which allows you to control every bit of it. Build by Nene Paid Ademang (In loving memory, 1991 - 2020). Modified for production by Team Payperlez",
+    "keywords": ["nenevel", "framework"],
     "license": "MIT",
     "version": "0.5",
     "minimum-stability": "dev",
@@ -27,7 +27,7 @@
     "autoload": {
         "psr-4": {
             "": "ext",
-            "DIY\\": "libs/",
+            "NENEVEL\\": "libs/",
             "App\\": "app/"
         },
         "classmap": [

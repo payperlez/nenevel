@@ -1,6 +1,6 @@
 <?php
 
-use DIY\Base\Router;
+use NENEVEL\Base\Router;
 use App\Controllers\HomeController;
 use Pecee\Http\Middleware\BaseCsrfVerifier;
 

@@ -8,8 +8,8 @@
  *
  */
 
-namespace DIY\Base;
-use \DIY\Base\Utils\DUtil;
+namespace NENEVEL\Base;
+use \NENEVEL\Base\Utils\DUtil;
 
 class DApiController extends BaseController {
     public function __construct(){

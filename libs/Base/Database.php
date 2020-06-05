@@ -20,7 +20,7 @@
  * }
  */
 
-namespace DIY\Base;
+namespace NENEVEL\Base;
 use \PDO as PDO;
 use \PDOException as PDOException;
 use \Exception as Exception;

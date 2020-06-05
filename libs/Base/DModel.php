@@ -9,8 +9,8 @@
  *
  */
 
-namespace DIY\Base;
-use DIY\Base\Utils\DUtil;
+namespace NENEVEL\Base;
+use NENEVEL\Base\Utils\DUtil;
 
 class DModel {
     protected static $__primaryKey__ = null;

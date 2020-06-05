@@ -11,7 +11,7 @@
  *
  */
 
-namespace DIY\Base;
+namespace NENEVEL\Base;
 use \Tamtamchik\SimpleFlash\Flash;
 use \Tamtamchik\SimpleFlash\TemplateFactory;
 use \Tamtamchik\SimpleFlash\Templates;
