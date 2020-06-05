@@ -15,6 +15,22 @@ $ php -r "unlink('composer-setup.php');"
 $ mv composer.phar /usr/local/bin/composer
 
 ```
+# Install composer on MacBook
+```bash
+$ brew install composer
+
+- After it you should see something like that:
+==> Installing homebrew/php/composer
+==> Downloading https://homebrew.bintray.com/bottles-php/composer-1.3.2.el_capitan.bottle.tar.gz
+######################################################################## 100.0%
+==> Pouring composer-1.3.2.el_capitan.bottle.tar.gz
+ /usr/local/Cellar/composer/1.3.2: 5 files, 1.7Mb
+```
+- Let’s test it, try to run the command below:
+```bash
+composer --version
+```
+If you saw a number of version then everything has gone fine.
 
 - Create a new project using composer.
 
