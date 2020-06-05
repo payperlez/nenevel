@@ -3,9 +3,10 @@
 
 # HOW TO USE
 
-Install composer globally. Do the following on a Linux. Visit https://getcomposer.org/doc/00-intro.md for windows.
+Install composer globally.
+Visit https://getcomposer.org/doc/00-intro.md for windows.
 
-
+# Install composer on Linux
 ```bash
 
 $ php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
@@ -15,8 +16,42 @@ $ php -r "unlink('composer-setup.php');"
 $ mv composer.phar /usr/local/bin/composer
 
 ```
+# Install composer on MacBook
+```bash
+$ brew install composer
 
-- Create a new project using composer.
+- After it you should see something like that:
+==> Installing homebrew/php/composer
+==> Downloading https://homebrew.bintray.com/bottles-php/composer-1.3.2.el_capitan.bottle.tar.gz
+######################################################################## 100.0%
+==> Pouring composer-1.3.2.el_capitan.bottle.tar.gz
+ /usr/local/Cellar/composer/1.3.2: 5 files, 1.7Mb
+```
+- Let’s test it, try to run the command below:
+```bash
+composer --version
+```
+If you saw a number of version then everything has gone fine.
+
+# Downloading directly from the composer website
+ Copy and paste that link – https://getcomposer.org/composer.phar – to your browser. It’s always the latest version of Composer.
+
+After getting it, open your terminal to test it. You need just run that command:
+
+```bash
+php ~/Downloads/composer.phar --version
+```
+We assume that you don’t want to write … every time when you need to use a composer. Let’s move it to bin directory
+```bash
+cp ~/Downloads/composer.phar /usr/local/bin/composer
+sudo chmod +x /usr/local/bin/composer
+```
+That second command makes your composer executable. Let’s try again, type that command:
+```bash
+composer --version
+```
+
+# Create a new project using composer.
 
 ```bash
 
