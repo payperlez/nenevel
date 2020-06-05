@@ -1,9 +1,9 @@
 <?php
 
-namespace DIY\Base\Utils;
+namespace NENEVEL\Base\Utils;
 use Predis\Client as PredisClient;
-use DIY\Base\Session\DRedisHandler;
-use DIY\Base\Session\DFileHandler;
+use NENEVEL\Base\Session\DRedisHandler;
+use NENEVEL\Base\Session\DFileHandler;
 
 /**
  * @author      Obed Ademang <kizit2012@gmail.com>

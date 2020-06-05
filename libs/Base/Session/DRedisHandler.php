@@ -11,9 +11,9 @@
  *
  */
 
-namespace DIY\Base\Session;
+namespace NENEVEL\Base\Session;
 use Predis\Client as PredisClient;
-use DIY\Base\Utils\DUtil;
+use NENEVEL\Base\Utils\DUtil;
 
 class DRedisHandler implements \SessionHandlerInterface {
     public $ttl = 1800;

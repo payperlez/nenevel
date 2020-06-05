@@ -16,8 +16,8 @@ use \Whoops\Handler\PrettyPageHandler;
 use \Whoops\Handler\JsonResponseHandler;
 use \Whoops\Handler\CallbackHandler as DErrorHandler;
 use \Whoops\Util\Misc;
-use DIY\Base\Bootstrap as Application;
-use DIY\Base\Utils\DUtil;
+use NENEVEL\Base\Bootstrap as Application;
+use NENEVEL\Base\Utils\DUtil;
 
 $oops = new Whoops();
 if(RUNTIME_ENVIRONMENT === 'dev'){

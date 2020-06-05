@@ -1,6 +1,6 @@
 <?php
     require_once 'vendor/autoload.php';
-    use DIY\Base\Utils\DRand;
+    use NENEVEL\Base\Utils\DRand;
 
     function prompt_silent($prompt = "Enter Password:") {
         if (preg_match('/^win/i', PHP_OS)) {
