@@ -20,6 +20,6 @@ $ mv composer.phar /usr/local/bin/composer
 
 ```bash
 
-$ composer create-project diy/framework [project_name]
+$ composer create-project nenevel/framework [project_name]
 
 ```
