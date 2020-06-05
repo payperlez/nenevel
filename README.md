@@ -2,12 +2,12 @@
 
  A PHP minimal framework which allows you to control every bit of it. Build by Nene Paid Ademang (In loving memory, 1991 - 2020). Modified for production by Team Payperlez.
 
-# HOW TO USE
+ HOW TO USE
 
 Install composer globally.
-Visit https://getcomposer.org/doc/00-intro.md for windows.
+Visit <https://getcomposer.org/doc/00-intro.md> for windows.
 
-#Install composer on Linux
+ Install composer on Linux
 
 ```bash
 
@@ -19,7 +19,7 @@ $ mv composer.phar /usr/local/bin/composer
 
 ```
 
-# Install composer on MacBook
+ Install composer on MacBook
 
 ```bash
 $ brew install composer
@@ -40,9 +40,9 @@ composer --version
 
 If you saw a number of version then everything has gone fine.
 
-# Downloading directly from the composer website
+ Downloading directly from the composer website
 
- Copy and paste that link – https://getcomposer.org/composer.phar – to your browser. It’s always the latest version of Composer.
+ Copy and paste that link – <https://getcomposer.org/composer.phar> – to your browser. It’s always the latest version of Composer.
 
 After getting it, open your terminal to test it. You need just run that command:
 
@@ -63,7 +63,7 @@ That second command makes your composer executable. Let’s try again, type that
 composer --version
 ```
 
-# Create a new project using composer.
+ Create a new project using composer.
 
 ```bash
 
