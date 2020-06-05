@@ -3,9 +3,10 @@
 
 # HOW TO USE
 
-Install composer globally. Do the following on a Linux. Visit https://getcomposer.org/doc/00-intro.md for windows.
+Install composer globally.
+Visit https://getcomposer.org/doc/00-intro.md for windows.
 
-
+# Install composer on Linux
 ```bash
 
 $ php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
@@ -32,7 +33,25 @@ composer --version
 ```
 If you saw a number of version then everything has gone fine.
 
-- Create a new project using composer.
+# Downloading directly from the composer website
+ Copy and paste that link – https://getcomposer.org/composer.phar – to your browser. It’s always the latest version of Composer.
+
+After getting it, open your terminal to test it. You need just run that command:
+
+```bash
+php ~/Downloads/composer.phar --version
+```
+We assume that you don’t want to write … every time when you need to use a composer. Let’s move it to bin directory
+```bash
+cp ~/Downloads/composer.phar /usr/local/bin/composer
+sudo chmod +x /usr/local/bin/composer
+```
+That second command makes your composer executable. Let’s try again, type that command:
+```bash
+composer --version
+```
+
+# Create a new project using composer.
 
 ```bash
 
