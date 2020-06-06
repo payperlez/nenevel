@@ -13,4 +13,4 @@ PHP Version
 
 ## Reporting a Vulnerability
 
-nenevel.payperlez.com/forum
+https://nenevel.payperlez.com/forum
