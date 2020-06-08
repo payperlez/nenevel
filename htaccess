@@ -6,7 +6,7 @@ php_value error_reporting 9999
 RewriteEngine On
 
 # This might change depending on your environment ...
-RewriteBase /~mastermind/toDo
+#RewriteBase ~/webroot/mypayperlez/
 
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
