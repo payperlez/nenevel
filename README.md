@@ -1,4 +1,4 @@
-# DIY Micro Framework
+# Nenevel Micro Framework
 A PHP minimal framework which allows you to control every bit of it.
 
 # HOW TO USE
@@ -15,7 +15,7 @@ $ mv composer.phar /usr/local/bin/composer
 - Create a new project using composer.
 
 ```bash
-$ composer create-project diy/framework [project_name] -s dev
+$ composer create-project nenevel/framework [project_name] -s dev
 ```
 
 - Run the config script.
