@@ -613,12 +613,12 @@
         "source": {
             "type": "git",
             "url": "https://github.com/symfony/console.git",
-            "reference": "e24bcf393a49c47f273baf92841788e13f314514"
+            "reference": "6f533d9849346d00e4a8c65ed19110ab8140c89c"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/symfony/console/zipball/e24bcf393a49c47f273baf92841788e13f314514",
-            "reference": "e24bcf393a49c47f273baf92841788e13f314514",
+            "url": "https://api.github.com/repos/symfony/console/zipball/6f533d9849346d00e4a8c65ed19110ab8140c89c",
+            "reference": "6f533d9849346d00e4a8c65ed19110ab8140c89c",
             "shasum": ""
         },
         "require": {
@@ -654,7 +654,7 @@
             "symfony/lock": "",
             "symfony/process": ""
         },
-        "time": "2020-06-10T02:55:06+00:00",
+        "time": "2020-06-12T14:38:11+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
